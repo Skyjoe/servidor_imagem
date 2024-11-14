@@ -129,4 +129,6 @@ def get_news():
     return jsonify(news_batch)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    # O Flask vai ouvir em 0.0.0.0 e na porta definida pela variável de ambiente "PORT"
+    port = int(os.environ.get("PORT", 5000))  # Defina uma porta padrão, se não houver a variável PORT
+    app.run(host="0.0.0.0", port=port, debug=True)
